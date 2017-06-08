@@ -1,0 +1,14 @@
+---
+# tasks file for apigee-opdk-temporary-remove-targets/
+- block:
+  - name: Create temporary holding folder
+    file:
+      path: "{{ items.temporary_holding_folder }}"
+      state: directory
+    with_items: "{{ temporary_move }}"
+
+  - name: Move to temporary holding folder
+    shell: "mv {{ items.original_folder }}/{{ items.file_name }} {{ items.temporary_holding_folder }}/"
+    with_items: "{{ temporary_move }}"
+
+  when: temporary_move is defined
