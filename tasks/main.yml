@@ -8,6 +8,7 @@
     with_items: "{{ temporary_move }}"
 
   - name: Move to temporary holding folder
+    ignore_errors: yes
     shell: "mv {{ item.original_folder }}/{{ item.file_name }} {{ item.temporary_holding_folder }}/"
     with_items: "{{ temporary_move }}"
 
