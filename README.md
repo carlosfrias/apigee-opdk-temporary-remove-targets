@@ -15,7 +15,7 @@ It is assumed that this is used manage an Apigee OPDK platform operation. This r
 Role Variables
 --------------
 
-`temporary_move` must be defined with the following structure:
+`temporary_move` must be defined as a collection of objects with the following structure:
 
     temporary_move:
     - { 
