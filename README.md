@@ -1,22 +1,33 @@
-Role Name
+Apigee OPDK Temporary Remove Targets
 =========
 
-A brief description of the role goes here.
+The purpose of this role is to re-locate files temporarily in order to enable an Apigee OPDK Platform installation, 
+configuration or maintenance process to complete successfully. This role is complementary to [Apigee OPDK Temporary 
+Restore Targets](https://github.com/carlosfrias/apigee-opdk-temporary-restore-targets).
 
 Requirements
 ------------
 
-Any pre-requisites that may not be covered by Ansible itself or the role should be mentioned here. For instance, if the role uses the EC2 module, it may be a good idea to mention in this section that the boto package is required.
+It is assumed that this is used manage an Apigee OPDK platform operation. This role works only if the a collection named 
+`temporary_move` is defined.
+
 
 Role Variables
 --------------
 
-A description of the settable variables for this role should go here, including any variables that are in defaults/main.yml, vars/main.yml, and any variables that can/should be set via parameters to the role. Any variables that are read from other roles and/or the global scope (ie. hostvars, group vars, etc.) should be mentioned here as well.
+`temporary_move` must be defined with the following structure:
+
+    temporary_move:
+    - { 
+        original_folder: '{ name of folder holding target file }', 
+        file_name: '{ name of file to move }', 
+        temporary_holding_folder: '{ folder that will temporarily hold artifacts that are expected to be restored }' 
+      }
 
 Dependencies
 ------------
 
-A list of other roles hosted on Galaxy should go here, plus any details in regards to parameters that may need to be set for other roles, or variables that are used from other roles.
+No 
 
 Example Playbook
 ----------------
